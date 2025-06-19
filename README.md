@@ -7,13 +7,27 @@ A lightweight tool to generate shell scripts that can recreate directory structu
 
 - **Low Dependencies**: Uses only standard Go libraries
 - **Human-Readable Output**: Generated scripts are easy to read and understand
-- **Smart File Handling**:
+- **File Handling**:
   - Text files are preserved using escaped heredoc strings
   - Binary files are encoded in base64 with SHA256 hash verification
   - Empty files are handled efficiently
   - File permissions are preserved
 - **Unix Philosophy**: Supports both file output and stdout for pipeline operations
 - **Flexible Usage**: Can be used for backup, deployment, or configuration management
+- **Testing**: For more info regarding file support see "./test/create__example_folder.sh"
+
+
+### Caveats
+- links aren't preserved
+- large files don't work very well
+
+### Todo
+- [] binary mode to make viewing and patching many hex files easy
+- [] option to use tar.gz file as a container (preserve links and other things)
+- [] option to make an additional layer of script to contain the main script so that the first execution doesn't extract the directory, only place a self extracting file ready to execute manually (useful when wanting more control over pasting)
+- [] option to silence more output (can make output faster)
+- [] option to check the folder size before running (it doesn't check, you will probably have trouble with large folders)
+
 
 ## Installation
 
@@ -43,23 +57,29 @@ shellbale -i INPUT_DIR [-o OUTPUT_SCRIPT]
 
 1. Create a backup script for a folder:
 ```bash
-shellbale -i ./my_project -o backup_project.sh
+shellbale -t -i ./my_project -o backup_project.sh
+shellbale -t -i ./my_project > backup_project.sh
 ```
 
-2. Use stdout redirection:
+2. Generate and pipe directly to clipboard (then paste into terminal and hit enter to execute):
 ```bash
-shellbale -i ./config > config_backup.sh
+shellbale -t -i ~/.config | xclip -sel clip #(Linux: apt install xclip)
+shellbale -t -i ~/.config | pbcopy #(Mac)
+shellbale -t -i ~/.config | clip #(Windows)
+shellbale -t -i ~/.config > /dev/clipboard #(Cygwin)
 ```
 
-3. Generate and pipe directly to a remote host:
+3. Refactor/patch/rename files and contents:
+```bash
+shellbale -i /etc -t | sed 's/hostname_keywordtag_1234/exmaplehostname/g' > provision_etc.sh
+SB=TD=$(mktemp -d); pushd $TD; exec $(shellbale -i ./app -t | -E 's/\bExample\b/Changed/g; s/\bexample\b/changed/g; s/\bEXAMPLE\b/CHANGED/g') > provision_etc.sh
+```
+
+4. Generate and pipe directly to a remote host:
 ```bash
 shellbale -i ./deployment | ssh remote_host "cat > deploy.sh"
 ```
 
-4. Generate and pipe directly to clipboard (can paste into terminal and hit enter to execute):
-```bash
-shellbale -i ~/.config -t | xclip -selection clipboard
-```
 
 
 ### Command Line Options
@@ -120,6 +140,23 @@ else
     echo "Hash does not match for $FILEPATH!"
     exit 1
 fi
+```
+
+
+## Alternative, just some lines of sh (with fewer features and checking)
+- If all you need is to copy a directory using a clipboard
+- if you just want the text, remove "|xclip -sel clip" 
+
+```bash
+#/bin/sh
+# tar.sh <FOLDERPATH>
+FOLDERPATH=$1
+cat <<__EOF_TAR_DOT_SH | xclip -sel clip
+cat <<\__TX_EOF_TAR_DO_SH | base64 -d | tar -xf -
+$(tar -cf - "$FOLDERPATH" | base64 -w0)
+__TX_EOF_TAR_DO_SH
+__EOF_TAR_DOT_SH
+
 ```
 
 ## Contributing

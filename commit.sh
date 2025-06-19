@@ -12,7 +12,7 @@ git add .
 git commit -m "$COMMIT_MSG"
 
 cat <<\NOTES>/dev/null
-tag=
-git add . && git commit -m "Release v$tag" && git tag "v$tag"
-#git push origin "v$tag"
+ver=0.0.0
+git tag -a v$ver -m "Release version $ver"
+git push origin v$ver
 NOTES

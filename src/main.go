@@ -66,7 +66,10 @@ EXAMPLES
     shellbale -i ./my_folder -o recreate_folder.sh
     shellbale -i /path/to/project > backup.sh
     shellbale -i ./config -t | ssh remote_host "cat > restore_config.sh"
-    shellbale -i ~/.config -t | xclip -selection clipboard`
+    shellbale -i ~/.config -t | xclip -selection clipboard
+
+AUTHOR
+	https://ahost.win`
 
 func main() {
 	var (
