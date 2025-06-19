@@ -1,0 +1,84 @@
+.TH SHELLBALE 1 "2024" "shellbale" "User Commands"
+.SH NAME
+shellbale \- generate shell scripts to recreate directory structures
+.SH SYNOPSIS
+.B shellbale
+[\fB\-h\fR]
+[\fB\-v\fR]
+\fB\-i\fR \fIINPUT_DIR\fR
+[\fB\-o\fR \fIOUTPUT_SCRIPT\fR]
+.SH DESCRIPTION
+.B shellbale
+creates a shell script that can recreate a directory structure including all files and subdirectories.
+Text files are preserved using heredoc strings while binary files are encoded using base64.
+.PP
+The generated script is designed to be as human-readable as possible, with only binary files being
+encoded in base64 format. The script will recreate the exact directory structure and file permissions
+of the original files.
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Show help message and exit
+.TP
+.BR \-v ", " \-\-version
+Show program version
+.TP
+.BR \-i ", " \-\-input =\fIDIR\fR
+Input directory to process
+.TP
+.BR \-o ", " \-\-output =\fIFILE\fR
+Output script path (optional, defaults to stdout)
+.SH EXAMPLES
+Generate a script to recreate a folder:
+.PP
+.nf
+.RS
+shellbale \-i ./my_folder \-o recreate_folder.sh
+.RE
+.fi
+.PP
+Write script to stdout and redirect to a file:
+.PP
+.nf
+.RS
+shellbale \-i /path/to/project > backup.sh
+.RE
+.fi
+.PP
+Generate and pipe script directly to a remote host:
+.PP
+.nf
+.RS
+shellbale \-i ./config | ssh remote_host "cat > restore_config.sh"
+.RE
+.fi
+.SH FEATURES
+.TP
+.B Directory Structure
+Creates directories before files to maintain proper structure
+.TP
+.B File Handling
+.RS
+.IP \[bu] 2
+Empty files are created using touch
+.IP \[bu]
+Text files are preserved using escaped heredoc strings
+.IP \[bu]
+Binary files are encoded in base64 with SHA256 hash verification
+.IP \[bu]
+File permissions are preserved
+.RE
+.SH EXIT STATUS
+.TP
+.B 0
+Success
+.TP
+.B 1
+Various errors (invalid arguments, file access errors, hash verification failures)
+.SH AUTHOR
+Written by the shellbale development team.
+.SH BUGS
+Report bugs at: https://github.com/yourusername/shellbale/issues
+.SH COPYRIGHT
+Copyright \(co 2024 shellbale developers.
+Licensed under MIT License. 

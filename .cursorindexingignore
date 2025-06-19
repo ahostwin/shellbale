@@ -1,0 +1,5 @@
+# Don't index SpecStory auto-save files, but allow explicit context inclusion via @ references
+.specstory/**
+.prompts/**
+./test/example_folder/**
+./test/create__example_folder.sh

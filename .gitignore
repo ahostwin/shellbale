@@ -1,0 +1,6 @@
+dist   
+dist/**
+_backups  
+_backups/**
+*.bak.tar.gz
+.env
