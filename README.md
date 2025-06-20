@@ -4,7 +4,9 @@
 # shellbale
 - By: ahost.win
 
-A lightweight tool to generate shell scripts that can recreate directory structures. It creates human-readable shell scripts that preserve both the content and structure of directories, making it ideal for backup, deployment, and configuration management.
+A lightweight quick and dirty tool to generate shell scripts that can recreate directory structures. 
+It creates human-readable shell scripts that preserve both the content and structure of directories.
+Just an easily editable/portabe option to get over the boilerplate and put files into hard to reach places.
 
 ## Features
 
