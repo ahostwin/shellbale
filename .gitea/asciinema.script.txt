@@ -1,0 +1,11 @@
+# packing this                     
+tree
+du -hd1
+shellbale -i ./kingbob-radio -t | xclip -sel clip
+# now it's loaded into my clipboard
+ssh root@w0
+pct enter 150
+mkdir deploy    
+pushd $_
+# now i'm going to paste
+tree
