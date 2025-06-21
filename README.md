@@ -32,13 +32,12 @@ Just an easily editable/portabe option to get over the boilerplate and put files
 - [] option to make an additional layer of script to contain the main script so that the first execution doesn't extract the directory, only place a self extracting file ready to execute manually (useful when wanting more control over pasting)
 - [] option to silence more output (can make output faster)
 - [] option to check the folder size before running (it doesn't check, you will probably have trouble with large folders)
-
+- [] add option to create a powershell version
 
 ## Installation
 
 ### Static binary
 ```bash
-
 sudo touch /usr/local/bin/shellbale
 sudo chmod +x /usr/local/bin/shellbale
 # Linux
@@ -49,6 +48,7 @@ sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/r
 sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-linux-x86_64
 sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-mac-arm64
 sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-mac-x86_64
+
 # Windows
 Invoke-WebRequest -Outfile "shellbale.exe" -Uri https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-win-x86_64.exe
 Unblock-File "shellbale.exe"
