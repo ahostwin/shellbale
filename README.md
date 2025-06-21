@@ -41,16 +41,16 @@ Just an easily editable/portabe option to get over the boilerplate and put files
 sudo touch /usr/local/bin/shellbale
 sudo chmod +x /usr/local/bin/shellbale
 # Linux
-sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-linux-x86_64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/latest/shellbale-linux-x86_64
 
 # All links
-sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-linux-arm64
-sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-linux-x86_64
-sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-mac-arm64
-sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-mac-x86_64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/latest/shellbale-linux-arm64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/latest/shellbale-linux-x86_64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/latest/shellbale-mac-arm64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/latest/shellbale-mac-x86_64
 
 # Windows
-Invoke-WebRequest -Outfile "shellbale.exe" -Uri https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-win-x86_64.exe
+Invoke-WebRequest -Outfile "shellbale.exe" -Uri https://gitpub.ahost.win/ahost/shellbale/releases/download/latest/shellbale-win-x86_64.exe
 Unblock-File "shellbale.exe"
 ```
 
@@ -193,4 +193,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the GNU Lesser General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
-[![LGPL v3](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDYiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTGljZW5zZTogTEdQTCB2MyI+PHRpdGxlPkxpY2Vuc2U6IExHUEwgdjM8L3RpdGxlPjxsaW5lYXJHcmFkaWVudCBpZD0icyIgeDI9IjAiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYmIiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz48L2xpbmVhckdyYWRpZW50PjxjbGlwUGF0aCBpZD0iciI+PHJlY3Qgd2lkdGg9IjEwNiIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L2NsaXBQYXRoPjxnIGNsaXAtcGF0aD0idXJsKCNyKSI+PHJlY3Qgd2lkdGg9IjUxIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNTU1Ii8+PHJlY3QgeD0iNTEiIHdpZHRoPSI1NSIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwN2VjNiIvPjxyZWN0IHdpZHRoPSIxMDYiIGhlaWdodD0iMjAiIGZpbGw9InVybCgjcykiLz48L2c+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlZlcmRhbmEsR2VuZXZhLERlamFWdSBTYW5zLHNhbnMtc2VyaWYiIHRleHQtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIGZvbnQtc2l6ZT0iMTEwIj48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iMjY1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSI0MTAiPkxpY2Vuc2U8L3RleHQ+PHRleHQgeD0iMjY1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSI0MTAiPkxpY2Vuc2U8L3RleHQ+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9Ijc3NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNDUwIj5MR1BMIHYzPC90ZXh0Pjx0ZXh0IHg9Ijc3NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iNDUwIj5MR1BMIHYzPC90ZXh0PjwvZz48L3N2Zz4=)](https://www.gnu.org/licenses/lgpl-3.0)
+![LGPL v3](https://www.gnu.org/licenses/lgpl-3.0)
