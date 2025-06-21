@@ -17,5 +17,5 @@ jobs:
           source_repo: 'https://gitpub.ahost.win/ahost/shellbale.git'
           source_branch: 'main'
           destination_branch: 'main'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT }}
           sync_tags: "true"
