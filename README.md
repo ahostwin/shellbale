@@ -36,6 +36,24 @@ Just an easily editable/portabe option to get over the boilerplate and put files
 
 ## Installation
 
+### Static binary
+```bash
+
+sudo touch /usr/local/bin/shellbale
+sudo chmod +x /usr/local/bin/shellbale
+# Linux
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-linux-x86_64
+
+# All links
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-linux-arm64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-linux-x86_64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-mac-arm64
+sudo wget -O /usr/local/bin/shellbale https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-mac-x86_64
+# Windows
+Invoke-WebRequest -Outfile "shellbale.exe" -Uri https://gitpub.ahost.win/ahost/shellbale/releases/download/v0.0.3/shellbale-win-x86_64.exe
+Unblock-File "shellbale.exe"
+```
+
 ### From Source
 
 ```bash
@@ -43,8 +61,12 @@ Just an easily editable/portabe option to get over the boilerplate and put files
 git clone https://gitpub.ahost.win/ahost/shellbale.git
 cd shellbale
 
-# Build the program
+# Build for all platforms
 ./build.sh
+
+# or simply build for your own platform
+cd src
+go build
 
 # Optional: Install to system (requires root)
 sudo cp dist/shellbale /usr/local/bin/
@@ -84,7 +106,6 @@ pushd $(mktemp -d) && exec $(shellbale -i $(pwd)/../app -t | -E 's/\bExample\b/C
 ```bash
 shellbale -i ./deployment | ssh remote_host "cat > deploy.sh"
 ```
-
 
 
 ### Command Line Options
